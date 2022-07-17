@@ -15,8 +15,8 @@ $(document).ready(function () {
 	 */
 	$salaryInput.on('change, keyup', function () {
 
-		mySalary = this.value;
-		
+		mySalary = parseFloat(this.value);
+
 		updateVariables();
 		updateTable();
 	})
@@ -29,7 +29,7 @@ $(document).ready(function () {
 		var $isChecked = $syndicateWrap.is(":checked");
 
 		if ($isChecked) {
-			affiliateFee = mySalary * (this.value / 100)
+			affiliateFee = parseFloat((mySalary * (this.value / 100)).toFixed(2) * -1);
 		} else {
 			affiliateFee = 0;
 		}
@@ -62,7 +62,7 @@ $(document).ready(function () {
 		var $isChecked = $(this).is(":checked");
 
 		if ($isChecked) {
-			transportTax = (mySalary * 0.06);
+			transportTax = parseFloat((mySalary * 0.06).toFixed(2) * -1);
 		} else {
 			transportTax = 0;
 		}
@@ -76,7 +76,9 @@ $(document).ready(function () {
 	function getFGTS() {
 
 		var salaryMinimum = 1212;
+
 		fgts = 0;
+
 		var progressiveFGTS = {
 			1: 7.5 / 100,
 			2: 9 / 100,
@@ -85,7 +87,7 @@ $(document).ready(function () {
 		}
 
 		index = 1;
-		amountForCalculation = mySalary;
+		amountForCalculation = parseFloat(mySalary);
 
 		while (amountForCalculation > 0) {
 
@@ -113,30 +115,32 @@ $(document).ready(function () {
 			}
 
 		};
+		
+		fgts = parseFloat((fgts * -1).toFixed(2));
 
-
-		return fgts
+		return parseFloat(fgts)
 	}
 
 	/**
 	 * Calculate salary 
 	 */
-	var getSalaryMinimum = function(){
-		return mySalary - fgts - transportTax - affiliateFee;
+	var getSalaryMinimum = function () {
+		
+		return parseFloat(mySalary + fgts + transportTax + affiliateFee).toFixed(2);
 	}
 
 	/**
 	 * Update inputs in HTML
 	 */
 	var updateTable = function () {
-		$('tbody td')[0].innerHTML = "R$ "  + parseFloat(mySalary).toFixed(2);
-		$('tbody td')[1].innerHTML = "R$ -" + parseFloat(getFGTS()).toFixed(2);
-		$('tbody td')[2].innerHTML = "R$ -" + parseFloat(transportTax).toFixed(2);
-		$('tbody td')[3].innerHTML = "R$ -" + parseFloat(affiliateFee).toFixed(2);
-		$('tbody td')[4].innerHTML = "R$ "  + parseFloat(getSalaryMinimum()).toFixed(2);
+		$('ul li span.item-value span')[0].innerHTML = mySalary	 				;
+		$('ul li span.item-value span')[1].innerHTML = getFGTS()				;
+		$('ul li span.item-value span')[2].innerHTML = parseFloat(transportTax) ;
+		$('ul li span.item-value span')[3].innerHTML = parseFloat(affiliateFee) ;
+		$('ul li span.item-value span')[4].innerHTML = getSalaryMinimum()		;
 	};
-
-	var updateVariables = function () {		
+	
+	var updateVariables = function () {
 		$transportTicket.trigger("change");
 		$syndicateWrap.trigger("change");
 		$syndicateInput.trigger("change");
@@ -144,5 +148,5 @@ $(document).ready(function () {
 
 	$salaryInput.trigger("keyup");
 	updateVariables();
-	
+
 });

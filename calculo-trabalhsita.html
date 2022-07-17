@@ -5,14 +5,12 @@
 <head>
   <!-- Meta tags Obrigatórias -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="css/style.css">
 
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
 
   <title>Financeiro Hardcore</title>
 </head>
@@ -27,29 +25,29 @@
       </div>
     </div>
 
-    <div class="wrap-rows">
-      <div class="row">
-        <div class="col-sm-11 col-md-4 col-11 bg-base wrap-card">
-          <div class="img-wrap">
-            <img id="reload" src="img/reload.svg" >
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Meus Dados Trabalhistas</h5>
+    <div class="wrap-rows container ">
 
-              <label for="salary" class="form-label">Saláro Bruto</label>
-              <input class="form-control" type="text" name="salary" id="salary">
+        <div class="">
+          <div class="card border" style="width: 18rem;">
+            <div class="card-header">
+              Meus Dados
+            </div>
 
-              <div class="m-auto checkboxies">
-
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <label for="salary" class="form-label">Saláro Bruto</label>
+                <input class="form-control" type="text" name="salary" id="salary">
+              </li>
+              <li class="list-group-item">
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" role="switch" id="transport-ticket">
                   <label class="form-check-label" for="transport-ticket">Eu recebo Vale Transporte</label>
                 </div>
-
+              </li>
+              <li class="list-group-item">
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" role="switch" id="syndicate">
-                  <label class="form-check-label" for="syndicate">Sou afiliados a um sindicato</label>
+                  <label class="form-check-label" for="syndicate">Sou afiliado a um sindicato</label>
                 </div>
 
                 <div class="syndicate-tax">
@@ -57,38 +55,72 @@
                     sindicato?</label>
                   <input class="form-control" type="text" name="affiliate-fee" id="affiliate-fee">
                 </div>
+              </li>
+            </ul>
 
-              </div>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              Resumo
             </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item ">
+                <div>
+                  <span class="col">Salario Bruto</span>
+                  <span class="item-value col-5">
+                    R$
+                    <span></span>
+                  </span>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div>
+                  <span class="col">FGTS</span>
+                  <span class="item-value col-5">
+                    R$
+                    <span></span>
+                  </span>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div>
+                  <span class="col">Vale Transporte</span>
+                  <span class="item-value col-5">
+                    R$
+                    <span></span>
+                  </span>
+                </div>
+              </li>
+              <li class="list-group-item syndicate-tax">
+                <div>
+                  <span class="col">Sindicato</span>
+                  <span class="item-value col-5">
+                    R$
+                    <span></span>
+                  </span>
+                </div>
+              </li>
+              </li>
+              <li class="list-group-item ">
+                <div>
+                  <span class="col">Salario Liquido</span>
+                  <span class="item-value col-5">
+                    R$
+                    <span></span>
+                  </span>
+                </div>
+              </li>
+              </li>
+              </li>
+            </ul>
+
           </div>
         </div>
-      </div>
 
-      <div class="row pt-5">
-
-        <div class="col px-4">
-          <div>
-            <table class="table table-sm table-bordered ">
-              <thead class="">
-                <th>Salario Bruto</th>
-                <th>FGTS</th>
-                <th>Vale Transporte</th>
-                <th id="th-syndicate">Sindicato</th>
-                <th>Salario Liquido</th>
-              </thead>
-
-              <tbody>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </div>
 
     </div>
   </div>
